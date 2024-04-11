@@ -29,7 +29,29 @@ defmodule GrubOnWheels.DataCase do
 
   setup tags do
     GrubOnWheels.DataCase.setup_sandbox(tags)
-    :ok
+
+    location1 = %GrubOnWheels.Locations.Location{
+      locationid: "123",
+      applicant: "Succulent Sushi",
+      facility_type: "Cart",
+      address: "123 Main St.",
+      food_items: "Sushi",
+      schedule: "",
+      visits: 0
+    } |> GrubOnWheels.Repo.insert!()
+
+    _location2 = %GrubOnWheels.Locations.Location{
+      locationid: "456",
+      applicant: "The Zesty Zucchini",
+      facility_type: "Truck",
+      address: "456 Anywhere Dr.",
+      food_items: "Salads",
+      schedule: "",
+      visits: 1
+    } |> GrubOnWheels.Repo.insert!()
+
+
+    {:ok, location1: location1}
   end
 
   @doc """
