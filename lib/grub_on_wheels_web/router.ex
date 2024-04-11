@@ -17,7 +17,7 @@ defmodule GrubOnWheelsWeb.Router do
   scope "/", GrubOnWheelsWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", LocationsLive
   end
 
   # Other scopes may use custom stacks.

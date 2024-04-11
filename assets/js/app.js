@@ -42,3 +42,9 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+window.addEventListener("phx:toggle_location", (e) => {
+  let el = document.getElementById("location-modal-wrapper")
+  if(el) {
+    liveSocket.execJS(el, el.getAttribute(e.detail.attr))
+  }
+})
